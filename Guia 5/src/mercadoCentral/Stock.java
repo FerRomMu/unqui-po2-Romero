@@ -39,11 +39,12 @@ public class Stock {
 	 * @param p El producto.
 	 * @param n La cantidad a aumentar.
 	 */
-	public void modificarStockDe(Producto p, int n) {
+	public Stock modificarStockDe(Producto p, int n) {
 		stock.put(p, this.getCantidadDe(p)+n);
 		if(stock.get(p) <= 0) {
 			stock.remove(p);
 		}
+		return this;
 	}
 	
 	private int getCantidadDe(Producto p) {

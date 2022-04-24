@@ -20,9 +20,6 @@ class TestCaja {
 		taza = new Producto(320d);
 		adorno = new ProductoDeCooperativa(350d);
 		
-		ordenJose = new OrdenDeCompra();
-		ordenMiguel = new OrdenDeCompra();
-		
 		stock = new Stock();
 		caja = new Caja(stock);
 		
@@ -30,10 +27,14 @@ class TestCaja {
 		stock.modificarStockDe(pc, 1);
 		stock.modificarStockDe(adorno, 5);
 		stock.modificarStockDe(taza, 1);
+		
+		caja.nuevaOrden().nuevaOrden();
 	}
 
 	@Test
 	void test() {
+		ordenJose = caja.getOrdenN(0);
+		ordenMiguel = caja.getOrdenN(1);
 		caja.registrarProducto(pc, ordenJose);
 		caja.registrarProducto(pc, ordenJose);
 		assertEquals(caja.montoAPagarDe(ordenJose), 120000);
