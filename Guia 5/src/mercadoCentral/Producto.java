@@ -1,6 +1,6 @@
 package mercadoCentral;
 
-public class Producto {
+public class Producto implements Utilidad {
 	
 	/**
 	 * Precio base del producto.
@@ -25,6 +25,11 @@ public class Producto {
 
 	private void setPrecioBase(double precioBase) {
 		this.precioBase = precioBase;
+	}
+
+	@Override
+	public void procesarPago() {
+		
 	}
 
 }

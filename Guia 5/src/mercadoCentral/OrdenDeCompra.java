@@ -5,15 +5,15 @@ import java.util.ArrayList;
 public class OrdenDeCompra {
 
 	/**
-	 * Lista de los productos que se compraron.
+	 * Lista de los productos, impuestos y servicios que se compraron.
 	 */
-	ArrayList<Producto> productos;
+	ArrayList<Utilidad> utilidad;
 	
 	/**
 	 * Constructor de OrdenDeCompra.
 	 */
 	public OrdenDeCompra () {
-		productos = new ArrayList<Producto>();
+		utilidad = new ArrayList<Utilidad>();
 	}
 	
 	/**
@@ -21,19 +21,27 @@ public class OrdenDeCompra {
 	 * @return
 	 */
 	public double getTotalAPagar() {
-		return productos.stream()
-				.mapToDouble(Producto::getPrecio)
+		return utilidad.stream()
+				.mapToDouble(Utilidad::getPrecio)
 				.sum();
 	}
 	
 	/**
-	 * Agrega el producto dado a la orden
+	 * Agrega la utilidad dada a la orden
 	 * de compra.
-	 * @param p El producto a agregar.
+	 * @param p La utilidad a agregar.
 	 * @return
 	 */
-	public OrdenDeCompra agregarProducto(Producto p) {
-		productos.add(p);
+	public OrdenDeCompra agregarUtilidad(Utilidad p) {
+		utilidad.add(p);
 		return this;
 	}
+
+	/**
+	 * Notifica a cada utilidad de que se realizo el pago.
+	 */
+	public void ejecutarCompra() {
+		utilidad.stream().forEach(Utilidad::procesarPago);
+	}
+
 }

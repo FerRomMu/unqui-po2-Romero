@@ -10,6 +10,9 @@ class TestOrdenDeCompra {
 	OrdenDeCompra ordenJose, ordenMiguel;
 	Producto esponja, pc, taza, billetera, celular;
 	ProductoDeCooperativa remera, adorno;
+	Servicio uber;
+	Impuesto alumbrado, iva;
+	Agencia municipio, afip;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -21,17 +24,22 @@ class TestOrdenDeCompra {
 		remera = new ProductoDeCooperativa(1200d);
 		adorno = new ProductoDeCooperativa(350d);
 		
+		uber = new Servicio(500d,5);
+		
+		alumbrado = new Impuesto(municipio, 1200d);
+		iva = new Impuesto(afip, 23500d);
+		
 		ordenJose = new OrdenDeCompra();
 		ordenMiguel = new OrdenDeCompra();
 		
-		ordenJose.agregarProducto(esponja).agregarProducto(remera).agregarProducto(adorno).agregarProducto(taza);
-		ordenMiguel.agregarProducto(pc).agregarProducto(celular).agregarProducto(pc).agregarProducto(billetera);
+		ordenJose.agregarUtilidad(esponja).agregarUtilidad(remera).agregarUtilidad(adorno).agregarUtilidad(taza).agregarUtilidad(uber).agregarUtilidad(alumbrado);
+		ordenMiguel.agregarUtilidad(pc).agregarUtilidad(celular).agregarUtilidad(pc).agregarUtilidad(billetera).agregarUtilidad(iva);
 	}
 
 	@Test
 	void test() {
-		assertEquals(ordenJose.getTotalAPagar(),1720d,0.2d);
-		assertEquals(ordenMiguel.getTotalAPagar(),330525d,0.2d);
+		assertEquals(ordenJose.getTotalAPagar(),5420d,0.2d);
+		assertEquals(ordenMiguel.getTotalAPagar(),354025d,0.2d);
 	}
 
 }
