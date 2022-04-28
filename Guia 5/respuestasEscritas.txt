@@ -1,0 +1,29 @@
+1. Dependiendo del tipo en el caso de collection.get(0) te devolvería el primer
+elemento de la coleccion dada. Pero si es no es una de las listas, la interfaz collection
+no conoce el mensaje get por lo que fallaria.
+
+En el caso del add agregaría a la coleccion dada el objeto dado.
+
+En el caso del sublist nuevamente necesitaria no ser zzz del tipo Collection ya que
+la interfaz desconoce sublist, pero si cualquiera de los tipos de listas (incluso
+la interfaz list) es utilizado te devolverá una nueva lista con los elementos entre
+los indices dados.
+
+En el caso de collection.contains te devolverá si la coleccion tiene el elemento dado.
+
+
+De Smalltal a Java: Personas y Mascotas.
+
+1. En java no se puede hacer operator overloading por lo que no hay forma de comparar
+dos personas mediante "<". Lo mas cercano a eso es personaA.esMenorA(personaB).
+Dentro de la implementacion ya si estara el "<".
+
+4. No. Wollok al no ser fuertemente tipado no necesita que ambos objetos sean instan-
+cias de una misma clase o implementen una determinada interfaz. El mecanismo que
+permite esto es el hecho de que son polimorficos entre si para el mensaje nombre.
+
+5. En java sí se podría garantizar a traves de herencia pero no sería una buena
+practica si mascota y persona responden a comportamientos distintos. En caso de
+que persona fuese subclase de otra clase que no puedo modificar no podría garantizar
+que responda a getName por herencia. La otra manera, y la mas correcta sería a traves
+de una interfaz que implemente tanto persona como mascota.

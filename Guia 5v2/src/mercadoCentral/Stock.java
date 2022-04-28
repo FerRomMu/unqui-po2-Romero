@@ -3,12 +3,6 @@ package mercadoCentral;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Clase que representa el stock de todo un mercado.
- * Se encarga de administrar el stock de productos.
- * @author fercho
- *
- */
 public class Stock {
 
 	/**
