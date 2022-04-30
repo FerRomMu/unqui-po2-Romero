@@ -1,0 +1,24 @@
+Solid:
+
+Single-Responsability:
+-El clienteEMail no tiene una responsabilidad clara. Por un lado administra los correos
+de la casila, borrandolos, contandolos, agregandolos; pero a la vez interactua con el
+servidor. Esto rompe con la single responsability.
+
+Open-Close:
+-Ninguno de los colaboradores internos de clienteEmail es privado. Esto podría ocasionar
+problemas si fuesen usados en otros objetos. A su vez deberia usar una interfaz para
+interactuar con el servidor en vez de directamente con este.
+
+Liskov:
+-No hay subclases por lo que no se rompe con liskov.
+
+Interface segregation:
+-ServidorPop no utiliza metodos que tiene dentro. Deberian quitarse y de ser necesario
+agregar interfaces que dividan estos mensajes para que el servidor no tenga que
+implementarlos de manera vacía.
+
+Dependency inverse:
+ClienteEMail utiliza mensajes de un tipo especifico (el servidorPop) lo que lo vuelve
+dependiente de la implementación de este. Deberia haber un wrapper entre medio de
+ambos.
