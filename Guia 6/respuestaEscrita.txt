@@ -22,3 +22,23 @@ Dependency inverse:
 ClienteEMail utiliza mensajes de un tipo especifico (el servidorPop) lo que lo vuelve
 dependiente de la implementación de este. Deberia haber un wrapper entre medio de
 ambos.
+
+-----------------------------------------------------------------------------
+PUNTO 2
+
+Para respetar singleResponsability se:
+-Divide al cliente en varias clases:
+	-CuentaCliente: Se encarga de administrar la información de la cuenta del
+	cliente.
+	-InformaciónPersonal: Se encarga de saber la información personal del cliente.
+	-Sueldo: Se encarga de saber su sueldo neto y bruto.
+	-Tenencia: Interfaz que representa las tenencias del cliente (En este caso
+	la propiedad).
+		-Propiedad: Se encarga de saber la información de la propiedad de un 
+		cliente.
+	-ProductoBancario: Se encarga de saber la información sobre un producto bancario
+	que tenga el cliente. En este caso los creditos ya aceptados.
+		-Credito: Se encarga de tener la información pertinente al credito.
+	-ProcesadorSolicitud: Se encarga de crear las solicitudes del cliente.
+	
+-
