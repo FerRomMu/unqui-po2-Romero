@@ -1,5 +1,5 @@
 package banco;
 
-public class ICliente {
+public interface ICliente {
 
 }

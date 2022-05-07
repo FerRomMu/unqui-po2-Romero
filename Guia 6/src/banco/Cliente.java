@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * @author fercho
  *
  */
-public class Cliente {
+public class Cliente implements ICliente{
 
 	String nombre, apellido, domicilio;
 	LocalDate fecNac;
