@@ -59,6 +59,7 @@ public class Cliente implements ICliente{
 	 * Se calcula a partir del día de la fecha actual.
 	 * @return un int con la edad del cliente.
 	 */
+	@Override
 	public int getEdad() {
 		LocalDate nac = this.fecNac;
 		LocalDate hoy = LocalDate.now();
@@ -91,6 +92,7 @@ public class Cliente implements ICliente{
 	 * Devuelve el sueldo neto actual del cliente.
 	 * @return un double que es el sueldo neto del cliente.
 	 */
+	@Override
 	public double getSueldoNeto() {
 		return this.sueldo;
 	}
@@ -99,6 +101,7 @@ public class Cliente implements ICliente{
 	 * Devuelve el sueldo neto anualizado.
 	 * @return un double que es el sueldo neto anualizado del cliente.
 	 */
+	@Override
 	public double getSueldoAnual() {
 		return this.getSueldoNeto() * 12;
 	}

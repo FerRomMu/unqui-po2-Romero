@@ -1,5 +1,11 @@
 package banco;
 
+/**
+ * Se encarga de guardar la información de un determinado
+ * credito ya concedido.
+ * @author fercho
+ *
+ */
 public class Credito implements ICredito {
 
 	double cuotaMensual;
@@ -22,7 +28,8 @@ public class Credito implements ICredito {
 	 * Retorna si ya se pagaron todas las cuotas.
 	 * @return el bool si esta pagada
 	 */
-	public Boolean estaPagada() {
+	@Override
+	public boolean estaPagada() {
 		return cuotasRestantes == 0;
 	}
 	
@@ -30,6 +37,7 @@ public class Credito implements ICredito {
 	 * Registra el pago de una cuota.
 	 * Disminuyendo en 1 la cantidad de cuotas a pagar.
 	 */
+	@Override
 	public void registrarPagoDeCuota() {
 		if (cuotasRestantes > 0) {
 			cuotasRestantes -= 1;
@@ -41,6 +49,7 @@ public class Credito implements ICredito {
 	 * el credito.
 	 * @return el ICliente
 	 */
+	@Override
 	public ICliente getCliente() {
 		return cliente;
 	}
@@ -49,6 +58,7 @@ public class Credito implements ICredito {
 	 * La cuota mensual a pagar.
 	 * @return el valor de la cuota.
 	 */
+	@Override
 	public double getCuota() {
 		return cuotaMensual;
 	}
