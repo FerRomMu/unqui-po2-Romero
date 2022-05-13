@@ -20,16 +20,16 @@ class PokerStatusTest {
 		c4 = "2T";
 		c5 = "2C";
 
-		c6 = "QP";
+		c6 = "1D";
 		c7 = "3D";
 		c8 = "QD";
-		c9 = "5T";
-		c10 = "8C";
+		c9 = "5D";
+		c10 = "8D";
 		
 		c11 = "KP";
 		c12 = "KD";
 		c13 = "KC";
-		c14 = "KT";
+		c14 = "JT";
 		c15 = "1C";
 		
 		ps = new PokerStatus();
@@ -38,9 +38,10 @@ class PokerStatusTest {
 	@Test
 	void test() {
 		//Excersice y verify
-		assertTrue(ps.verificar(c1,c2,c3,c4,c5));
-		assertFalse(ps.verificar(c6,c7,c8,c9,c10));
-		assertTrue(ps.verificar(c11,c12,c13,c14,c15));
+		assertEquals(ps.verificar(c1,c2,c3,c4,c5),"Poker");
+		assertEquals(ps.verificar(c6,c7,c8,c9,c10),"Color");
+		assertEquals(ps.verificar(c11,c12,c13,c14,c15), "Trio");
+		assertEquals(ps.verificar(c1, c6, c3, c13, c14), "Nada");
 	}
 
 }

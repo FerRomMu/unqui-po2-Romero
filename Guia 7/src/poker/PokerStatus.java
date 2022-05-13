@@ -12,45 +12,69 @@ public class PokerStatus {
 	}
 	
 	/**
-	 * Verifica que las cartas dadas tengan poker.
+	 * Verifica que las cartas dadas tengan poker, color o trio.
 	 * @param c1 las cartas dadas con formato ValorPalo "8P"
 	 * @param c2
 	 * @param c3
 	 * @param c4
 	 * @param c5
-	 * @return verdero si es poker.
+	 * @return "Poker","Trio","Color" o "Nada" según corresponda.
 	 */
-	public boolean verificar(String c1, String c2, String c3, String c4, String c5) {
+	public String verificar(String c1, String c2, String c3, String c4, String c5) {
 
-		String hv = this.getHandValues(c1,c2,c3,c4,c5);
-		return this.isPoker(hv);
-		
-	}
-
-	/**
-	 * Verifica si hay al menos 4 valores dados que sean iguales.
-	 * @param hv un String de 5 caracteres con los valores numericos de cada carta.
-	 * @return verdadero si hay 4 valores iguales.
-	 */
-	private boolean isPoker(String hv) {
-		this.clearMSet();
-		for(int i=0; i < hv.length();i++) {
-			this.addMSet(hv.charAt(i));
+		//Carga el multiset para verificar valores numericos
+		this.setM(this.getHand(c1,c2,c3,c4,c5,0));
+		if (this.isPoker()) {
+			return "Poker";
+		}else if (this.isTrio()) {
+			return "Trio";
 		}
-		return this.hayPokerEnMSet(); 
+		//Carga el multiset para verificar valores de palo
+		this.setM(this.getHand(c1, c2, c3, c4, c5,1));
+		if(this.isColor()) {
+			return "Color";
+		}
+		return "Nada";
 	}
 
 	/**
-	 * Recorre el multiset dado para ver si hay al menos un elemento con
-	 * 4 instancias de él (por ej 4 letras k).
-	 * Precondición: El multiSet m tiene los valores de cada carta.
+	 * Indica si hay poker en la mano.
+	 * Precondición: El multiSet m tiene los valores numericos de cada carta.
 	 * @return verdadero si los valores del multiset dan poker.
 	 */
-	private boolean hayPokerEnMSet() {
+	private boolean isPoker() {
+		return this.hayAlMenos(4);
+	}
+
+	/**
+	 * Indica si hay trio en la mano.
+	 * Precondición: El multiSet m tiene los valores numericos de cada carta.
+	 * @return verdadero si los valores del multiset dan trio.
+	 */
+	private boolean isTrio() {
+		return this.hayAlMenos(3);
+	}
+
+	/**
+	 * Indica si hay color en la mano.
+	 * Precondición: El multiSet m tiene los valores de palos de cada carta.
+	 * @return verdadero si los valores del multiset dan color.
+	 */
+	private boolean isColor() {
+		return this.hayAlMenos(5);
+	}
+
+	/**
+	 * Verifica si hay n cantidad de valores repetidos dentro del
+	 * multiset.
+	 * @param n es la cantidad de valores repetidos que debe haber.
+	 * @return Verdadero si hay n valores repetidos.
+	 */
+	private boolean hayAlMenos(int n) {
 		Iterator<Character> i = m.keySet().iterator();
 		while(i.hasNext()) {
 			Character c = i.next();
-			if(m.get(c) >= 4) {
+			if(m.get(c) >= n) {
 				return true;
 			}
 		}
@@ -58,35 +82,47 @@ public class PokerStatus {
 	}
 
 	/**
+	 * Carga en el multiset la cadena de caracteres dada.
+	 * Cada caracter debe corresponder a un valor de la mano del jugador.
+	 * @param hv representa los valores de las cartas de la mano del jugador.
+	 */
+	private void setM(String hv) {
+		this.clearMSet();
+		for(int i=0; i < hv.length();i++) {
+			this.addMSet(hv.charAt(i));
+		}
+	}
+	
+	/**
 	 * Agrega un caracter que corresponde al valor de una carta.
 	 * @param s el caracter a agregar.
 	 */
 	private void addMSet(Character s) {
-		
 		m.put(s, m.getOrDefault(s, 0) + 1);
-		
 	}
 
 	/**
 	 * Borra todo posible valor del multiset m.
 	 */
 	private void clearMSet() {
-		
 		m.clear();
 	}
 
 	/**
-	 * Dadas 5 cartas, obtiene el valor númerico de cada una y lo devuelve
+	 * Dadas 5 cartas y un int que vale 0 o 1, obtiene el valor númerico 
+	 * de cada una si es 0 el int dado o el color de cada una y lo devuelve
 	 * como un String de 5 caracteres.
+	 * Precondicion: i es 0 o 1.
 	 * @param c1 Las cartas.
 	 * @param c2
 	 * @param c3
 	 * @param c4
 	 * @param c5
-	 * @return un String de 5 caracteres con cada valor de cada carta.
+	 * @param i es el indice del caracter a buscar en la carta.
+	 * @return un String de 5 caracteres con cada valor pedido de las cartas.
 	 */
-	private String getHandValues(String c1, String c2, String c3, String c4, String c5) {
-		return "" + c1.charAt(0) + c2.charAt(0) + c3.charAt(0) + c4.charAt(0) + c5.charAt(0);
+	private String getHand(String c1, String c2, String c3, String c4, String c5, int i) {
+		return "" + c1.charAt(i) + c2.charAt(i) + c3.charAt(i) + c4.charAt(i) + c5.charAt(i);
 	}
 
 }
