@@ -28,16 +28,16 @@ class PokerStatusTest {
 	@Test
 	void testPoker() {
 		//Excersice 
-		when(c1.getPalo()).thenReturn("D");
-		when(c2.getPalo()).thenReturn("D");
-		when(c3.getPalo()).thenReturn("P");
-		when(c4.getPalo()).thenReturn("C");
-		when(c5.getPalo()).thenReturn("T");
-		when(c1.getValor()).thenReturn("1");
-		when(c2.getValor()).thenReturn("1");
-		when(c3.getValor()).thenReturn("1");
-		when(c4.getValor()).thenReturn("1");
-		when(c5.getValor()).thenReturn("2");
+		when(c1.getPalo()).thenReturn('D');
+		when(c2.getPalo()).thenReturn('D');
+		when(c3.getPalo()).thenReturn('P');
+		when(c4.getPalo()).thenReturn('C');
+		when(c5.getPalo()).thenReturn('T');
+		when(c1.getValor()).thenReturn('1');
+		when(c2.getValor()).thenReturn('1');
+		when(c3.getValor()).thenReturn('1');
+		when(c4.getValor()).thenReturn('1');
+		when(c5.getValor()).thenReturn('2');
 		//verify
 		assertEquals(ps.verificar(c1, c2, c3, c4, c5), "Poker");
 	}
@@ -45,16 +45,16 @@ class PokerStatusTest {
 	@Test
 	void testTrio() {
 		//Excersice 
-		when(c1.getPalo()).thenReturn("D");
-		when(c2.getPalo()).thenReturn("D");
-		when(c3.getPalo()).thenReturn("P");
-		when(c4.getPalo()).thenReturn("C");
-		when(c5.getPalo()).thenReturn("T");
-		when(c1.getValor()).thenReturn("1");
-		when(c2.getValor()).thenReturn("1");
-		when(c3.getValor()).thenReturn("1");
-		when(c4.getValor()).thenReturn("K");
-		when(c5.getValor()).thenReturn("2");
+		when(c1.getPalo()).thenReturn('D');
+		when(c2.getPalo()).thenReturn('D');
+		when(c3.getPalo()).thenReturn('P');
+		when(c4.getPalo()).thenReturn('C');
+		when(c5.getPalo()).thenReturn('T');
+		when(c1.getValor()).thenReturn('1');
+		when(c2.getValor()).thenReturn('1');
+		when(c3.getValor()).thenReturn('1');
+		when(c4.getValor()).thenReturn('K');
+		when(c5.getValor()).thenReturn('2');
 		//verify
 		assertEquals(ps.verificar(c1, c2, c3, c4, c5), "Trio");
 	}
@@ -62,16 +62,16 @@ class PokerStatusTest {
 	@Test
 	void testColor() {
 		//Excersice 
-		when(c1.getPalo()).thenReturn("D");
-		when(c2.getPalo()).thenReturn("D");
-		when(c3.getPalo()).thenReturn("D");
-		when(c4.getPalo()).thenReturn("D");
-		when(c5.getPalo()).thenReturn("D");
-		when(c1.getValor()).thenReturn("1");
-		when(c2.getValor()).thenReturn("5");
-		when(c3.getValor()).thenReturn("1");
-		when(c4.getValor()).thenReturn("4");
-		when(c5.getValor()).thenReturn("K");
+		when(c1.getPalo()).thenReturn('D');
+		when(c2.getPalo()).thenReturn('D');
+		when(c3.getPalo()).thenReturn('D');
+		when(c4.getPalo()).thenReturn('D');
+		when(c5.getPalo()).thenReturn('D');
+		when(c1.getValor()).thenReturn('1');
+		when(c2.getValor()).thenReturn('5');
+		when(c3.getValor()).thenReturn('1');
+		when(c4.getValor()).thenReturn('4');
+		when(c5.getValor()).thenReturn('K');
 		//verify
 		assertEquals(ps.verificar(c1, c2, c3, c4, c5), "Color");
 	}
@@ -79,17 +79,18 @@ class PokerStatusTest {
 	@Test
 	void testNada() {
 		//Excersice 
-		when(c1.getPalo()).thenReturn("D");
-		when(c2.getPalo()).thenReturn("D");
-		when(c3.getPalo()).thenReturn("P");
-		when(c4.getPalo()).thenReturn("C");
-		when(c5.getPalo()).thenReturn("T");
-		when(c1.getValor()).thenReturn("2");
-		when(c2.getValor()).thenReturn("Q");
-		when(c3.getValor()).thenReturn("K");
-		when(c4.getValor()).thenReturn("2");
-		when(c5.getValor()).thenReturn("6");
+		when(c1.getPalo()).thenReturn('D');
+		when(c2.getPalo()).thenReturn('D');
+		when(c3.getPalo()).thenReturn('P');
+		when(c4.getPalo()).thenReturn('C');
+		when(c5.getPalo()).thenReturn('T');
+		when(c1.getValor()).thenReturn('2');
+		when(c2.getValor()).thenReturn('Q');
+		when(c3.getValor()).thenReturn('K');
+		when(c4.getValor()).thenReturn('2');
+		when(c5.getValor()).thenReturn('6');
 		//verify
 		assertEquals(ps.verificar(c1, c2, c3, c4, c5), "Nada");
 	}
+	
 }
