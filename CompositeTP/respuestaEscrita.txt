@@ -7,3 +7,14 @@ y objetos individuales. Ya que el cliente los tratará con la estrucutura
 composite uniformemente.
 4/5. Se logra gracias al polimorfismo entre las clases compuestas y las 
 individuales así como tambien por el encapsulamiento que hay en ellas.
+
+----------------
+Ejercicio 2
+
+1. Facilita el diseño y agregado de nuevas parcelas gracias a la jerarquia de clases.
+Pero puede dificultar el limitar los tipos al tratar a todos por igual.
+3. Las parcelas simples solo devuelven el valor de la ganancia actual, la parcela
+mixta obtiene las diferentes ganancias y las divide por 4.
+4. Solo debe hacerlo la parcela mixta ya que es la única que tiene hijos.
+5. Component es Porcion, leaf es PorcionCultivo y Composite es PorcionMixta.
+---------------
