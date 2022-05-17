@@ -1,0 +1,9 @@
+1/2. Se logra a traves de una clase abstracta que representa ambas subclases
+la clase primitiva y sus contenedoras.
+3. Se utiliza cuando:
+-Quieres representar una jerarquia de objetos parte-todo.
+- Quieres que tu cliente pueda ignorar la diferencia entre objetos compuestos
+y objetos individuales. Ya que el cliente los tratará con la estrucutura
+composite uniformemente.
+4/5. Se logra gracias al polimorfismo entre las clases compuestas y las 
+individuales así como tambien por el encapsulamiento que hay en ellas.
