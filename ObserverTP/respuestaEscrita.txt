@@ -1,0 +1,16 @@
+0. El simple observer claramente no funcionaria porque estan mal implementados
+los mensajes entre el sensor y el observador. Suponiendo que estos estuvieran bien
+y que por lo tanto se pudiesen comunicar entre si. La ventaja de este observador
+es que siempre que el sensor cambie, el observador será notificado y podrá actuar
+en consecuencia. La desventaja es que de suceder esto constantemente, la interacción
+tambien será constante y probablemente innecesaria en la mayoria de los casos.
+
+En el complex sensor el sensor le notifica al observador que es especificamente lo que 
+ha cambiado lo que tiene como ventaja que evita tener que preguntar que cosas han
+cambiado al observador para poder reaccionar en base a estos cambios, pero que a su
+vez le obliga a tener que discriminar a traves de varios if cada cadena que sea
+un efecto distinto.
+
+Finalmente el listener posee varios tipos de mensajes para cada evento especifico
+que puede llegar a escuchar. Lo que amplia la cantidad de mensajes que debe saber
+enviar el sensor pero evita el problema de if anteriormente dicho.

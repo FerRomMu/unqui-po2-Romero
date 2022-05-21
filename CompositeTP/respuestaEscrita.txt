@@ -18,3 +18,4 @@ mixta obtiene las diferentes ganancias y las divide por 4.
 4. Solo debe hacerlo la parcela mixta ya que es la única que tiene hijos.
 5. Component es Porcion, leaf es PorcionCultivo y Composite es PorcionMixta.
 ---------------
+
